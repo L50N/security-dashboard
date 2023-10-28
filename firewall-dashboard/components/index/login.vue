@@ -40,7 +40,7 @@
         </div>
         <div class="mt-3">
           <button type="submit"
-            class="w-full py-2 bg-[#BDC0D8] text-white rounded-xl text-lg font-semibold tracking-tight">Anmelden</button>
+            class="w-full py-2 bg-[#BDC0D8] hover:bg-[#afb2cc] transition-all ease-in-out delay-100 text-white rounded-xl text-lg font-semibold tracking-tight">Anmelden</button>
         </div>
       </form>
       <div class="flex justify-center py-3 select-none">
