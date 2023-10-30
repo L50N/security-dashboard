@@ -3,8 +3,10 @@
 </script>
 
 <template>
-<<<<<<< Updated upstream
+  <!-- LOGIN COMPONENT -->
   <div class="min-h-screen flex items-center justify-center bg-gray-100 flex-col space-y-6">
+
+    <!-- LOGIN FORM -->
     <div class="max-w-md w-full pb-12 px-8 sm:px-10 pt-16 bg-white rounded-3xl">
       <form @submit.prevent="login">
         <div class="mb-6 relative">
@@ -22,6 +24,7 @@
               class="block w-full py-2 pl-10 pr-4 border-transparent rounded-[0.6rem] focus:outline-none focus:border-[#BDC0D8] focus:ring-0 text-[0.9rem] flex items-center"
               placeholder="Deine E-Mail-Adresse" />
           </div>
+
         </div>
         <div class="mb-4 relative">
           <label for="password" class="block text-sm font-medium text-gray-600">Passwort</label>
@@ -39,38 +42,24 @@
               placeholder="Dein Passwort" />
           </div>
         </div>
+
         <div class="mt-3">
           <button type="submit"
             class="w-full py-2 bg-[#BDC0D8] hover:bg-[#afb2cc] transition-all ease-in-out delay-100 text-white rounded-xl text-lg font-semibold tracking-tight">Anmelden</button>
         </div>
       </form>
+
       <div class="flex justify-center py-3 select-none">
         <a href="https://example.com/" target="_blank" class="text-sm text-gray-400">Forgot password?</a>
-=======
-  <div class="bg-white">
-    <div>
-      <!-- HERE COMES THE LOGO IF THE LOGIN CONTAINER -->
-      <img>
-    </div>
-    <div>
-      <!-- LOGIN DETAILS -->
-      <div>
-        <div>
-          <form action="/action_page.php">
-            <label for="fname">Username:</label><br>
-            <input type="text" id="fname" name="fname" value="John"><br>
-            <label for="lname">Last name:</label><br>
-            <input type="text" id="lname" name="lname" value="Doe"><br><br>
-            <input type="submit" value="Submit">
-          </form>
-        </div>f
->>>>>>> Stashed changes
       </div>
     </div>
+
+    <!-- FIREWALL DASHBOARD INFORMATION -->
     <div class="flex justify-center text-sm text-gray-400">
       <p>© Firewall Dashboard 2023</p>
     </div>
   </div>
+
 </template>
 
 <style scoped></style>
