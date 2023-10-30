@@ -3,6 +3,7 @@
 </script>
 
 <template>
+<<<<<<< Updated upstream
   <div class="min-h-screen flex items-center justify-center bg-gray-100 flex-col space-y-6">
     <div class="max-w-md w-full pb-12 px-8 sm:px-10 pt-16 bg-white rounded-3xl">
       <form @submit.prevent="login">
@@ -45,6 +46,25 @@
       </form>
       <div class="flex justify-center py-3 select-none">
         <a href="https://example.com/" target="_blank" class="text-sm text-gray-400">Forgot password?</a>
+=======
+  <div class="bg-white">
+    <div>
+      <!-- HERE COMES THE LOGO IF THE LOGIN CONTAINER -->
+      <img>
+    </div>
+    <div>
+      <!-- LOGIN DETAILS -->
+      <div>
+        <div>
+          <form action="/action_page.php">
+            <label for="fname">Username:</label><br>
+            <input type="text" id="fname" name="fname" value="John"><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" value="Doe"><br><br>
+            <input type="submit" value="Submit">
+          </form>
+        </div>f
+>>>>>>> Stashed changes
       </div>
     </div>
     <div class="flex justify-center text-sm text-gray-400">
