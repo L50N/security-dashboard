@@ -3,7 +3,14 @@
 </script>
 
 <template>
+  <!-- NEEDED COMPONENTS -->
+  <sitebar />
+  <navbar />
 
+  <!-- CONTENT COMPONENTS -->
+  <div class="ml-64">
+
+  </div>
 </template>
 
 <style scoped>
