@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="h-[100vh] justify-items-start rounded-r-2xl bg-white inline-block absolute w-64 py-48">
+  <div class="h-screen justify-items-start bg-white inline-block absolute w-64 py-48">
 
     <!-- MANAGEMENT CATEGORY -->
     <div class="px-6">

@@ -7,7 +7,7 @@
 
     <!-- IF A UPDATE IS AVADIBLE -->
     <div class="py-14 px-8 space-y-4 h-full">
-      <div class="bg-[#E5E7FA] py-1 px-4 inline-block rounded-full font-extrabold text-[#9DA2CB]">NEW</div>
+      <div class="bg-[#E5E7FA] py-1 px-4 inline-block rounded-full font-extrabold text-[#9DA2CB] select-none">v1.2</div>
       <div>
         <p class="text-white text-4xl font-medium">New Update is <br/>avadible!</p>
       </div>

@@ -11,6 +11,7 @@
     <homeContentGroups />
     <homeContentUpdate />
   </div>
+  <div class="py-4"></div>
 </template>
 
 <style scoped>
