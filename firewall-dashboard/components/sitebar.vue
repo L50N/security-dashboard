@@ -60,6 +60,11 @@
         </div>
       </div>
     </div>
+
+    <!-- FIREWALL DASHBOARD CREDITS --> <!-- TEMPORAERY DISABLED DUE BUGS! -->
+    <div class="text-center flex justify-center items-end hidden">
+      <p class="font-light text-gray-400">© Firewall Dashboard</p>
+    </div>
   </div>
 </template>
 

@@ -7,7 +7,7 @@
 
       <!-- SEARCHBAR CONTAINER -->
       <div class="grid grid-cols-[2fr,1fr,80px,80px,80px] 2xl:grid-cols-[3fr,1fr,80px,80px,80px] space-x-3">
-      <div class="bg-white rounded-2xl text-xl px-12 flex flex-row items-center">
+      <div class="bg-white rounded-2xl text-xl px-8 flex flex-row items-center">
         <p class="text-gray-400">Search</p>
         <div class="flex justify-end w-full">
         <svg width="24" height="24" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -24,7 +24,7 @@
 
       <!-- TIME-FRAME SETTING -->
       <div>
-        <div class="bg-white rounded-2xl txt-xl py-5 px-8 grid grid-cols-[1fr,18.5px] flex-row items-center">
+        <div class="bg-white rounded-2xl txt-xl py-5 px-8 grid grid-cols-[1fr,22.5px] flex-row items-center">
           <div>
           <p class="text-gray-400 w-full text-lg">Last 2 months</p>
           </div>
