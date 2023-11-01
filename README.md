@@ -24,7 +24,7 @@ Some features include:
 * 🔒 High security using the latest technologies
 * ⚙️ Easy installation and configuration
 
-### 🛠️ Built with
+### Built with
 
 ![NuxtJS](https://img.shields.io/badge/NuxtJS-00C58E?style=for-the-badge&logo=nuxt.js&logoColor=white)
 ![Go](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)
