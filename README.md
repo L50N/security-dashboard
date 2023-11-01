@@ -11,7 +11,7 @@
     <br />
     <a href="https://github.com/l50n/Firewall-Dashboard/issues">Submit a Bug Report</a>
     ·
-    <a href="paypal.me/L5ONdev">Support development with a donation</a>
+    <a href="paypal.me/L5ONdev" target="_blank">Support development with a donation</a>
   </p>
 </div>
 
