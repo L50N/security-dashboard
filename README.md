@@ -42,11 +42,11 @@ Some features include:
 
 1. Grant execution rights to the installation script:
    ```sh
-   $ chmod +x fw-installer.sh
+   chmod +x fw-installer.sh
    ```
 2. Now, simply run the installer:
    ```sh
-   $ (sudo) ./fw-installer.sh
+   ./fw-installer.sh
    ```
 
 ## Usage
