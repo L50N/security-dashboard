@@ -1,10 +1,10 @@
-name: Build and Test Nuxt.js application
+name: Nuxt.js CI/CD
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
 
 jobs:
   build-and-test:
@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x] # Verwenden Sie die empfohlene Node.js Version
+        node-version: [18.x] # Stellen Sie sicher, dass Sie die neueste stabile Node-Version verwenden
 
     steps:
     - uses: actions/checkout@v3
@@ -22,15 +22,27 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+
     - name: Install dependencies
       run: npm ci
-      working-directory: ./development/fw-frontend  # Pfad zu Ihrem Nuxt.js Projekt
+      working-directory: ./development/fw-frontend
+
+    - name: Lint
+      run: npm run lint
+      working-directory: ./development/fw-frontend
+      continue-on-error: true # Optional, falls Linting-Fehler nicht den Prozess stoppen sollen
+
     - name: Build
       run: npm run build
-      working-directory: ./development/fw-frontend  # Pfad zu Ihrem Nuxt.js Projekt
-    - name: Run tests
-      run: npm run test
-      working-directory: ./development/fw-frontend  # Pfad zu Ihrem Nuxt.js Projekt
+      working-directory: ./development/fw-frontend
+
     - name: Generate Static Site (if needed)
       run: npm run generate
-      working-directory: ./development/fw-frontend  # Pfad zu Ihrem Nuxt.js Projekt
+      working-directory: ./development/fw-frontend
+
+    # Fügen Sie diesen Teil nur hinzu, wenn Sie auch ein Testskript in Ihrem package.json definiert haben
+    - name: Run tests
+      run: npm run test
+      working-directory: ./development/fw-frontend
+
+    # Optional: Deployment-Schritte hier hinzufügen
