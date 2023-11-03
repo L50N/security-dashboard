@@ -1,4 +1,4 @@
-name: 🚀 Build and Archive Website
+name: 🚀 Build and Archive Nuxt.js Site
 
 on:
   push:
@@ -12,15 +12,27 @@ jobs:
     steps:
       - name: 📥 Checkout Code
         uses: actions/checkout@v2
-      
-      - name: 🗂️ Prepare Distribution Directory
+
+      - name: 🧶 Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16' # Oder eine andere Node-Version, die dein Projekt benötigt
+
+      - name: 📦 Install Dependencies
+        run: npm install
+        working-directory: ./development/fw-frontend # Wechsle ins Frontend-Verzeichnis
+
+      - name: ⚙️ Build Nuxt.js Project
+        run: npm run build
+        working-directory: ./development/fw-frontend # Wechsle ins Frontend-Verzeichnis
+
+      - name: 🗂️ Prepare Archive
         run: |
-          mkdir -p dist/
-          cp ./development/fw-frontend/*.html dist/ # Kopiert alle HTML-Dateien
-          cp ./development/fw-frontend/*.css dist/  # Kopiert alle CSS-Dateien
-          # Kopiere weitere Ressourcen wie Bilder, JS usw., falls notwendig
-          cp -r ./development/fw-frontend/images dist/ # Beispiel für Bilder
-          cp -r ./development/fw-frontend/js dist/ # Beispiel für JavaScript-Dateien
+          # Das generierte `dist` Verzeichnis von Nuxt.js befindet sich innerhalb des Frontend-Verzeichnisses
+          cp -R ./development/fw-frontend/.nuxt/dist/client/ dist/ # Kopiere den Inhalt von `.nuxt/dist/client/` nach `dist/`
+          # Falls du statische Dateien hast, die kopiert werden müssen, kannst du sie hier hinzufügen.
+          # Zum Beispiel:
+          # cp -R ./development/fw-frontend/static/* dist/
 
       - name: 📦 Archive Website
         uses: actions/upload-artifact@v2
