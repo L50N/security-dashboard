@@ -28,17 +28,30 @@ jobs:
       run: npm ci
       working-directory: ./development/fw-frontend
 
+    - name: 📂 List directory structure before build
+      run: ls -la
+      working-directory: ./development/fw-frontend
+
     - name: 🏗️ Build Project
       run: npm run build
       working-directory: ./development/fw-frontend
 
+    - name: 📂 List output directory after build
+      run: ls -la .nuxt
+      working-directory: ./development/fw-frontend
+
     - name: 🚚 Move Build to the Specific Directory
       run: |
-        mkdir -p ./development/fw-frontend/build
-        mv .nuxt/* ./development/fw-frontend/build/
+        mkdir -p build
+        mv .nuxt/dist/client/* build/
+      working-directory: ./development/fw-frontend
+
+    - name: 📂 List build directory to confirm move
+      run: ls -la build
       working-directory: ./development/fw-frontend
 
     - name: 📤 Upload Build Directory
+      if: success() && steps.list_build_dir.outcome == 'success'
       uses: actions/upload-artifact@v2
       with:
         name: build-directory
