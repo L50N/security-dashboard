@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x] # Stellen Sie sicher, dass Sie die neueste stabile Node-Version verwenden
+        node-version: [18.x] # Node-v18
 
     steps:
     - uses: actions/checkout@v3
@@ -23,26 +23,21 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
 
-    - name: Install dependencies
+    - name: INSTALLING DEPENDENCIES...
       run: npm ci
       working-directory: ./development/fw-frontend
 
-    - name: Lint
+    - name: LINT...
       run: npm run lint
       working-directory: ./development/fw-frontend
       continue-on-error: true # Optional, falls Linting-Fehler nicht den Prozess stoppen sollen
 
-    - name: Build
+    - name: BUILDING...
       run: npm run build
       working-directory: ./development/fw-frontend
 
-    - name: Generate Static Site (if needed)
+    - name: GENERATING STATIC SITE...
       run: npm run generate
       working-directory: ./development/fw-frontend
-
-    # Fügen Sie diesen Teil nur hinzu, wenn Sie auch ein Testskript in Ihrem package.json definiert haben
-    - name: Run tests
-      run: npm run test
-      working-directory: ./development/fw-frontend
-
-    # Optional: Deployment-Schritte hier hinzufügen
+      
+# Made by L5ON with <3
