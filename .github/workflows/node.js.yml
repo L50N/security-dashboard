@@ -15,7 +15,6 @@ jobs:
 
       - name: 🏗️ Build Project
         run: |
-          npm run dev
           mkdir -p dist/
           cp -R source/* dist/ # Ersetze 'source/' mit dem Verzeichnis deiner HTML/CSS Dateien.
 
