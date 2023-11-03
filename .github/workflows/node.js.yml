@@ -13,15 +13,14 @@ jobs:
       - name: 📥 Checkout Code
         uses: actions/checkout@v2
       
-      - name: 📂 List directory structure
-        run: ls -R # Zeigt die Struktur des ausgecheckten Repositories an
-
       - name: 🗂️ Prepare Distribution Directory
         run: |
           mkdir -p dist/
-          cp src/*.html dist/ # Kopiere alle HTML-Dateien aus dem Verzeichnis 'src'
-          cp src/*.css dist/ # Kopiere alle CSS-Dateien aus dem Verzeichnis 'src'
-          # Füge hier weitere Kopierbefehle hinzu für andere Dateitypen, die du benötigst, z.B. cp src/*.js dist/
+          cp ./development/fw-frontend/*.html dist/ # Kopiert alle HTML-Dateien
+          cp ./development/fw-frontend/*.css dist/  # Kopiert alle CSS-Dateien
+          # Kopiere weitere Ressourcen wie Bilder, JS usw., falls notwendig
+          cp -r ./development/fw-frontend/images dist/ # Beispiel für Bilder
+          cp -r ./development/fw-frontend/js dist/ # Beispiel für JavaScript-Dateien
 
       - name: 📦 Archive Website
         uses: actions/upload-artifact@v2
