@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Build and Test Nuxt.js application
 
 on:
   push:
@@ -7,14 +7,13 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build-and-test:
 
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [18.x] # Verwenden Sie die empfohlene Node.js Version
 
     steps:
     - uses: actions/checkout@v3
@@ -25,10 +24,13 @@ jobs:
         cache: 'npm'
     - name: Install dependencies
       run: npm ci
-      working-directory: ./development/fw-frontend
+      working-directory: ./development/fw-frontend  # Pfad zu Ihrem Nuxt.js Projekt
     - name: Build
-      run: npm run build --if-present
-      working-directory: ./development/fw-frontend
+      run: npm run build
+      working-directory: ./development/fw-frontend  # Pfad zu Ihrem Nuxt.js Projekt
     - name: Run tests
-      run: npm test
-      working-directory: ./development/fw-frontend
+      run: npm run test
+      working-directory: ./development/fw-frontend  # Pfad zu Ihrem Nuxt.js Projekt
+    - name: Generate Static Site (if needed)
+      run: npm run generate
+      working-directory: ./development/fw-frontend  # Pfad zu Ihrem Nuxt.js Projekt
