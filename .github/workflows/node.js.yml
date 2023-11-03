@@ -16,11 +16,9 @@ jobs:
       - name: 🗂️ Prepare Distribution Directory
         run: |
           mkdir -p dist/
-          cp -R * dist/ # Kopiere alle Dateien im Root-Verzeichnis
-
-      - name: 🚚 Exclude Non-Distributable Files
-        run: |
-          rm -rf dist/.git dist/.github dist/workflows # Entferne nicht benötigte Dateien und Verzeichnisse
+          cp *.html dist/ # Kopiere alle HTML-Dateien
+          cp *.css dist/ # Kopiere alle CSS-Dateien
+          # Füge hier weitere Kopierbefehle hinzu für andere Dateitypen, die du benötigst, z.B. cp *.js dist/
 
       - name: 📦 Archive Website
         uses: actions/upload-artifact@v2
