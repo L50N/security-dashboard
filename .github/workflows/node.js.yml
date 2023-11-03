@@ -12,13 +12,16 @@ jobs:
     steps:
       - name: 📥 Checkout Code
         uses: actions/checkout@v2
+      
+      - name: 📂 List directory structure
+        run: ls -R # Zeigt die Struktur des ausgecheckten Repositories an
 
       - name: 🗂️ Prepare Distribution Directory
         run: |
           mkdir -p dist/
-          cp *.html dist/ # Kopiere alle HTML-Dateien
-          cp *.css dist/ # Kopiere alle CSS-Dateien
-          # Füge hier weitere Kopierbefehle hinzu für andere Dateitypen, die du benötigst, z.B. cp *.js dist/
+          cp src/*.html dist/ # Kopiere alle HTML-Dateien aus dem Verzeichnis 'src'
+          cp src/*.css dist/ # Kopiere alle CSS-Dateien aus dem Verzeichnis 'src'
+          # Füge hier weitere Kopierbefehle hinzu für andere Dateitypen, die du benötigst, z.B. cp src/*.js dist/
 
       - name: 📦 Archive Website
         uses: actions/upload-artifact@v2
