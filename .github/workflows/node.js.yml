@@ -13,7 +13,7 @@ jobs:
       - name: 📥 Checkout Code
         uses: actions/checkout@v2
 
-      - name: 🏗️ Build Project
+      - name: 🗂️ Prepare Distribution Directory
         run: |
           mkdir -p dist/
           cp -R source/* dist/ # Ersetze 'source/' mit dem Verzeichnis deiner HTML/CSS Dateien.
