@@ -1,4 +1,4 @@
-name: 🚀 Build and Archive Nuxt.js Site
+name: 🚀 Build and archive Nuxt.js project
 
 on:
   push:
@@ -10,32 +10,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout Code
+      - name: 📥 Checkout code
         uses: actions/checkout@v2
 
-      - name: 🧶 Setup Node
+      - name: 🧶 Setup node
         uses: actions/setup-node@v2
         with:
-          node-version: '16' # Oder eine andere Node-Version, die dein Projekt benötigt
+          node-version: '16'
 
-      - name: 📦 Install Dependencies
+      - name: 📦 Install dependencies
         run: npm install
-        working-directory: ./development/fw-frontend # Wechsle ins Frontend-Verzeichnis
+        working-directory: ./development/fw-frontend
 
-      - name: ⚙️ Build Nuxt.js Project
+      - name: ⚙️ Build Nuxt.js project
         run: npm run build
-        working-directory: ./development/fw-frontend # Wechsle ins Frontend-Verzeichnis
+        working-directory: ./development/fw-frontend
 
-      - name: 🗂️ Prepare Archive
+      - name: 🗂️ Prepare archive
         run: |
-          # Das generierte `dist` Verzeichnis von Nuxt.js befindet sich innerhalb des Frontend-Verzeichnisses
           cp -R ./development/fw-frontend/.nuxt/dist/client/ dist/ # Kopiere den Inhalt von `.nuxt/dist/client/` nach `dist/`
-          # Falls du statische Dateien hast, die kopiert werden müssen, kannst du sie hier hinzufügen.
-          # Zum Beispiel:
-          # cp -R ./development/fw-frontend/static/* dist/
 
-      - name: 📦 Archive Website
+      - name: 📦 Archive website
         uses: actions/upload-artifact@v2
         with:
           name: website-artifact
           path: dist/
+
+## Made by L50N with <3
