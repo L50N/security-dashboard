@@ -1,4 +1,4 @@
-name: Nuxt.js CI/CD
+name: 🚀 Nuxt.js CI/CD
 
 on:
   push:
@@ -13,31 +13,43 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x] # Node-v18
+        node-version: [18.x] # 🌐 Verwenden der neuesten stabilen Node-Version
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: ✅ Checkout Code
+      uses: actions/checkout@v3
+      
+    - name: 🌟 Setup Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
 
-    - name: INSTALLING DEPENDENCIES...
+    - name: 📦 Install Dependencies
       run: npm ci
       working-directory: ./development/fw-frontend
 
-    - name: LINT...
+    - name: 🔍 Lint Code (optional)
       run: npm run lint
       working-directory: ./development/fw-frontend
-      continue-on-error: true # Optional, falls Linting-Fehler nicht den Prozess stoppen sollen
+      continue-on-error: true # Fährt mit dem nächsten Schritt fort, auch wenn Linting-Fehler auftreten
 
-    - name: BUILDING...
+    - name: 🏗️ Build Project
       run: npm run build
       working-directory: ./development/fw-frontend
 
-    - name: GENERATING STATIC SITE...
+    - name: 📄 Generate Static Site (if needed)
       run: npm run generate
       working-directory: ./development/fw-frontend
-      
-# Made by L5ON with <3
+
+#    - name: 🧪 Run Tests
+#      run: npm run test
+#      working-directory: ./development/fw-frontend
+
+    - name: 📤 Upload Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: dist-artifacts
+        path: ./development/fw-frontend/.nuxt/dist
+
+## Made by L50N with <3
