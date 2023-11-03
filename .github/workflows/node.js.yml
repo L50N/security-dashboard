@@ -7,13 +7,12 @@ on:
     branches: [ main ]
 
 jobs:
-  build-and-test:
-
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [18.x] # 🌐 Verwenden der neuesten stabilen Node-Version
+        node-version: [18.x] # Verwenden der neuesten stabilen Node-Version
 
     steps:
     - name: ✅ Checkout Code
@@ -29,27 +28,28 @@ jobs:
       run: npm ci
       working-directory: ./development/fw-frontend
 
-    - name: 🔍 Lint Code (optional)
-      run: npm run lint
-      working-directory: ./development/fw-frontend
-      continue-on-error: true # Fährt mit dem nächsten Schritt fort, auch wenn Linting-Fehler auftreten
-
     - name: 🏗️ Build Project
       run: npm run build
       working-directory: ./development/fw-frontend
 
-    - name: 📄 Generate Static Site (if needed)
-      run: npm run generate
+    - name: 🚚 Move Build to the Specific Directory
+      run: |
+        mkdir -p ./development/fw-frontend/build
+        mv .nuxt/* ./development/fw-frontend/build/
       working-directory: ./development/fw-frontend
 
-#    - name: 🧪 Run Tests
-#      run: npm run test
-#      working-directory: ./development/fw-frontend
-
-    - name: 📤 Upload Artifacts
+    - name: 📤 Upload Build Directory
       uses: actions/upload-artifact@v2
       with:
-        name: dist-artifacts
-        path: ./development/fw-frontend/.nuxt/dist
+        name: build-directory
+        path: ./development/fw-frontend/build/
 
-## Made by L50N with <3
+    # Optional: Fügen Sie Schritte für Tests oder weitere Überprüfungen hinzu.
+    # - name: 🧪 Run Tests
+    #   run: npm test
+    #   working-directory: ./development/fw-frontend
+
+    # Optional: Fügen Sie Schritte hinzu, um den Build auf einen Server hochzuladen, wenn dies gewünscht wird.
+    # - name: 🚀 Deploy to Server
+    #   run: DEPLOY_SCRIPT_OR_COMMAND
+    #   working-directory: ./development/fw-frontend/build/
