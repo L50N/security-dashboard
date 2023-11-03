@@ -1,68 +1,26 @@
-name: 🚀 Nuxt.js CI/CD
+name: 🚀 Build and Archive Website
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  build-and-deploy:
+  build-and-archive:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [18.x] # Verwenden der neuesten stabilen Node-Version
-
     steps:
-    - name: ✅ Checkout Code
-      uses: actions/checkout@v3
-      
-    - name: 🌟 Setup Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v2
 
-    - name: 📦 Install Dependencies
-      run: npm ci
-      working-directory: ./development/fw-frontend
+      - name: 🏗️ Build Project
+        run: |
+          npm run dev
+          mkdir -p dist/
+          cp -R source/* dist/ # Ersetze 'source/' mit dem Verzeichnis deiner HTML/CSS Dateien.
 
-    - name: 📂 List directory structure before build
-      run: ls -la
-      working-directory: ./development/fw-frontend
-
-    - name: 🏗️ Build Project
-      run: npm run build
-      working-directory: ./development/fw-frontend
-
-    - name: 📂 List output directory after build
-      run: ls -la .nuxt
-      working-directory: ./development/fw-frontend
-
-    - name: 🚚 Move Build to the Specific Directory
-      run: |
-        mkdir -p build
-        mv .nuxt/dist/client/* build/
-      working-directory: ./development/fw-frontend
-
-    - name: 📂 List build directory to confirm move
-      run: ls -la build
-      working-directory: ./development/fw-frontend
-
-    - name: 📤 Upload Build Directory
-      if: success() && steps.list_build_dir.outcome == 'success'
-      uses: actions/upload-artifact@v2
-      with:
-        name: build-directory
-        path: ./development/fw-frontend/build/
-
-    # Optional: Fügen Sie Schritte für Tests oder weitere Überprüfungen hinzu.
-    # - name: 🧪 Run Tests
-    #   run: npm test
-    #   working-directory: ./development/fw-frontend
-
-    # Optional: Fügen Sie Schritte hinzu, um den Build auf einen Server hochzuladen, wenn dies gewünscht wird.
-    # - name: 🚀 Deploy to Server
-    #   run: DEPLOY_SCRIPT_OR_COMMAND
-    #   working-directory: ./development/fw-frontend/build/
+      - name: 📦 Archive Website
+        uses: actions/upload-artifact@v2
+        with:
+          name: website-artifact
+          path: dist/
