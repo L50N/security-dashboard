@@ -14,6 +14,4 @@
   <div class="py-4"></div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
