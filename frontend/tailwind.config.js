@@ -11,7 +11,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Inter: ["Inter"],
+        'inter': ['Inter'],
+        'dmsans': ['DM Sans'],
+      },
+      colors: {
+        'primary': '#648de5',
       },
     },
   },
