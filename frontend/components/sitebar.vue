@@ -61,7 +61,6 @@
         </div>
       </div>
 
-      <!-- "Ausloggen" link moved to the bottom -->
       <div class="mb-10">
         <div class="cursor-pointer">
           <a class="flex flex-row space-x-2 items-center text-gray-700 hover:bg-[#f1f1f1] py-2 px-2 rounded-lg" href="">
