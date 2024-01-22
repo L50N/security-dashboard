@@ -4,7 +4,7 @@
   </a>
   <h3 align="center">Security Dashboard</h3>
   <p align="center">
-    A modern security dashboard with a focus on modern safety! 🔥🛡️
+    A modern security dashboard with a focus on modern server safety! 🔥🛡️
     <br />
     <a href="#"><strong>Explore the documentation »</strong></a>
     <br />
