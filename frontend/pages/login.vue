@@ -4,6 +4,6 @@ const route = useRoute()
 
 <template>
   <div>
-    <Signin />
+    <Login />
   </div>
 </template>
