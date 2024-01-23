@@ -9,7 +9,7 @@
     <a href="#"><strong>Explore the documentation »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/l50n/Firewall-Dashboard/issues">Submit a Bug Report</a>
+    <a href="https://github.com/l50n/Security-Dashboard/issues">Submit a Bug Report</a>
     ·
     <a href="https://paypal.me/L5ONdev">Support development with a donation</a>
   </p>
