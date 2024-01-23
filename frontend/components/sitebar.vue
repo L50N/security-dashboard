@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen fixed py-5 px-7 border-r-[1px] border-gray-200 bg-gray-50 inline-block min-w-[300px] select-none">
+  <div class="h-screen fixed py-5 px-7 border-r-[1px] border-gray-200 bg-gray-50 inline-block min-w-[280px] select-none">
     <a href="/" class="hover:opacity-80 transition-all ease-in-out delay-100"><img src="/logo-dark.png" class="h-10"></a>
 
     <div class="flex flex-col justify-between h-full">
@@ -62,17 +62,8 @@
       </div>
 
       <div class="mb-10">
-        <div class="cursor-pointer">
-          <a class="flex flex-row space-x-2 items-center text-gray-700 hover:bg-[#f1f1f1] py-2 px-2 rounded-lg" href="">
-            <div class="text-gray-400">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />
-              </svg>
-            </div>
-            <p class="cursor-pointer font-medium text-[15px]">Logout</p>
-          </a>
+        <div class="cursor-pointer flex justify-center w-full">
+          <a class="text-center text-xs text-gray-400" target="_blank" href="https://github.com/L50N">© Security Dashboard 2023 - 2024</a>
         </div>
       </div>
 

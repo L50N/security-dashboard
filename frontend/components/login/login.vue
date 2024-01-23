@@ -3,27 +3,26 @@
       <div class="container mx-auto">
         <div class="max-w-md mx-auto my-10">
           <div class="text-center">
-            <p class="my-1 text-3xl font-semibold">Sign in</p>
-            <p class="text-gray-500 dark:text-gray-400">Log in to gain access to the dashboard.</p>
+            <img class="px-7 lg:px-0 py-3" src="/secutiry-dashboard-blue-transparent-white-font.png">
           </div>
           <div class="m-7">
             <form action="">
               <div class="mb-6">
-                <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email Address</label>
+                <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400 select-none">Email Address</label>
                 <input
                   type="email"
                   name="email"
                   id="email"
                   placeholder="Your email address"
-                  class="bg-[#fcfcfc] w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-primary"
+                  class="select-none bg-[#fcfcfc] w-full px-3 py-2 text-sm placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-primary"
                 />
               </div>
               <div class="mb-6">
                 <div class="flex justify-between mb-2">
-                  <label for="password" class="text-sm text-gray-600 dark:text-gray-400">Password</label>
+                  <label for="password" class="text-sm text-gray-600 dark:text-gray-400 select-none">Password</label>
                   <a
                     href="#!"
-                    class="text-sm text-gray-400 focus:outline-none focus:text-primary hover:text-primary dark:hover:text-indigo-300"
+                    class="select-none text-sm text-gray-400 focus:outline-none focus:text-primary hover:text-primary dark:hover:text-indigo-300"
                   >
                     Forgot password?
                   </a>
@@ -33,19 +32,24 @@
                   name="password"
                   id="password"
                   placeholder="Your Password"
-                  class="bg-[#fcfcfc] w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-primary"
+                  class="select-none bg-[#fcfcfc] w-full px-3 py-2 text-sm placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-primary"
                 />
               </div>
               <div class="mb-6">
                 <button
                   type="button"
-                  class="w-full px-3 py-2 text-white bg-primary hover:bg-[#719af3] transition-all delay-100 ease-in-out rounded-md focus:bg-[#7399eb] focus:outline-none"
+                  class="select-none w-full px-3 py-2 text-white bg-primary hover:bg-[#719af3] transition-all delay-100 ease-in-out rounded-md focus:bg-[#7399eb] focus:outline-none"
                 >
                   Sign in
                 </button>
               </div>
             </form>
           </div>
+          <div>
+        <div class="cursor-pointer flex justify-center w-full">
+          <a class="text-center text-xs text-gray-400" target="_blank" href="https://github.com/L50N">© Security Dashboard 2023 - 2024</a>
+        </div>
+      </div>
         </div>
       </div>
     </div>

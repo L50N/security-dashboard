@@ -5,7 +5,7 @@ const route = useRoute()
 <template>
   <div>
       <Sitebar />
-      <div class="px-[334px] pt-[100px]">
+      <div class="px-[324px] pt-[110px]">
         <indexHero />
       </div>
   </div>
