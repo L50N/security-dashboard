@@ -15,6 +15,10 @@
   </p>
 </div>
 
+<div style="color: red; text-align: center; margin-bottom: 20px;">
+  <strong>WARNING:</strong> This Security Dashboard is provided "as is," without warranty of any kind, express or implied. Use it at your own risk. The developers assume no liability for security vulnerabilities, breaches, or any other issues that may arise during usage.
+</div>
+
 ## About the Project
 
 This Security Dashboard focuses on the highest security and user-friendliness. It is designed to provide network administrators with an intuitive and modern interface for managing their firewalls.
@@ -29,7 +33,6 @@ Some features include:
 ![NuxtJS](https://img.shields.io/badge/NuxtJS-1B1F23?style=for-the-badge&logo=nuxt.js&logoColor=58A6FF)
 ![GO](https://img.shields.io/badge/Go-1B1F23?style=for-the-badge&logo=go&logoColor=58A6FF)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-1B1F23?style=for-the-badge&logo=tailwind-css&logoColor=58A6FF)
-
 
 ## Getting Started
 
