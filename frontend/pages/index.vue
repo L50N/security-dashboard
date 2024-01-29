@@ -4,9 +4,6 @@ const route = useRoute()
 
 <template>
   <div>
-      <Sitebar />
-      <div class="px-[324px] pt-[110px]">
-        <indexHero />
-      </div>
+    <Login />
   </div>
 </template>

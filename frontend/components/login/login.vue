@@ -3,7 +3,7 @@
       <div class="container mx-auto">
         <div class="max-w-md mx-auto my-10">
           <div class="text-center">
-            <img class="px-7 lg:px-0 py-3" src="/secutiry-dashboard-blue-transparent-white-font.png">
+            <img class="px-7 lg:px-0 py-3" src="/secutiry-dashboard-high-resolution-logo-transparent-edt.png">
           </div>
           <div class="m-7">
             <form action="">
