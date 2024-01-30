@@ -10,7 +10,7 @@ const route = useRoute()
       </div>
       <div class="pl-[324px] pr-12 pt-[56px]">
         <indexHero />
-        <IndexStatistics />
+        <indexStatistics />
       </div>
   </div>
 </template>
