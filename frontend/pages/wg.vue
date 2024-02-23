@@ -9,9 +9,11 @@ const route = useRoute()
         <Current />
       </div>
       <div class="pl-[324px] pr-12 pt-[56px]">
+        <wgAdd />
         <wgHero />
         <wgStatistics />
         <Separator />
+        <wgProfiles />
       </div>
   </div>
 </template>

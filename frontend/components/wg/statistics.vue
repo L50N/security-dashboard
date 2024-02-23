@@ -1,7 +1,7 @@
 <template>
     <div class="pt-12">
         <div>
-            <div class="grid grid-cols-[134px,1fr]">
+            <div class="flex flex-row space-x-10">
                 <div>
                 <p>Configuration</p>
                 <div class="text-2xl font-medium">
@@ -16,7 +16,7 @@
                 </div>
             </div>
             </div>
-            <div class="grid grid-cols-[186px,322px,312px,1fr] py-8">
+            <div class="flex flex-row space-x-12 py-8">
                 <div>
                     <div class="flex flex-row space-x-[5px] items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

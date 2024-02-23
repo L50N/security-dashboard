@@ -1,0 +1,19 @@
+{
+  "name": "security-dashboard",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">\r   <a href=\"https://github.com/l50n/Firewall-Dashboard\">\r     <img src=\"https://i.ibb.co/LYqpTW4/secutiry-dashboard-high-resolution-logo-transparent.png\" alt=\"Logo\" height=\"80\">\r   </a>\r   <h3 align=\"center\">Security Dashboard</h3>\r   <p align=\"center\">\r     A modern security dashboard with a focus on modern server safety! 🔥🛡️\r     <br />\r     <a href=\"#\"><strong>Explore the documentation »</strong></a>\r     <br />\r     <br />\r     <a href=\"https://github.com/l50n/Security-Dashboard/issues\">Submit a Bug Report</a>\r     ·\r     <a href=\"https://paypal.me/L5ONdev\">Support development with a donation</a>\r   </p>\r </div>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/L50N/security-dashboard.git"
+  },
+  "author": "L5ONdev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/L50N/security-dashboard/issues"
+  },
+  "homepage": "https://github.com/L50N/security-dashboard#readme"
+}

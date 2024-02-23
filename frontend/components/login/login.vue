@@ -37,7 +37,7 @@
               </div>
               <div class="mb-6">
                 <button
-                  type="button"
+                  type="submit"
                   class="select-none w-full px-3 py-2 text-white bg-primary hover:bg-[#719af3] transition-all delay-100 ease-in-out rounded-md focus:bg-[#7399eb] focus:outline-none"
                 >
                   Sign in
@@ -54,4 +54,31 @@
       </div>
     </div>
   </template>
-  
+
+<script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      email: '',
+      password: ''
+    }
+  },
+  methods: {
+    login() {
+      axios.post('http://localhost:5000/login', {
+        email: this.email,
+        password: this.password
+      }, { withCredentials: true }) // Send credentials with the request
+          .then(response => {
+            // Assuming successful login, redirect to dashboard
+            this.$router.push('/dashboard');
+          })
+          .catch(error => {
+            console.error('Login failed:', error);
+          });
+    }
+  }
+}
+</script>
