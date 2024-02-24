@@ -1,7 +1,7 @@
 <template>
   <div class="h-screen fixed py-5 px-7 border-r-[1px] border-gray-200 bg-gray-50 inline-block min-w-[280px] select-none">
     <a href="/dashboard" class="hover:opacity-80 transition-all ease-in-out delay-100">
-      <img src="/logo-dark.png" class="h-10">
+      <img src="/secutiry-dashboard-black.png" class="h-10">
     </a>
 
     <div class="flex flex-col justify-between h-full">
