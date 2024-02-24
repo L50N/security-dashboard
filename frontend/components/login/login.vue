@@ -70,13 +70,13 @@ export default {
       axios.post('http://localhost:5000/login', {
         email: this.email,
         password: this.password
-      }, { withCredentials: true }) // Send credentials with the request
+      }, { withCredentials: true })
           .then(response => {
-            // Assuming successful login, redirect to dashboard
             this.$router.push('/dashboard');
           })
           .catch(error => {
             console.error('Login failed:', error);
+            this.$router.push('/');
           });
     }
   }

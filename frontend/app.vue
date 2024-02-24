@@ -19,14 +19,14 @@ export default {
       axios.get('http://localhost:5000/check-login', { withCredentials: true })
           .then(response => {
             if (!response.data.loggedIn) {
-              // User is not logged in, redirect to login page
               this.$router.push('/');
             } else {
-              // User is logged in, continue with current route
+              console.log('Login could be verified.')
             }
           })
           .catch(error => {
             console.error('Error checking login status:', error);
+            this.$router.push('/');
           });
     }
   }
