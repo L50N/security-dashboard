@@ -68,16 +68,21 @@ export default {
   methods: {
     login() {
       axios.post('http://localhost:5000/login', {
-        email: this.email,
-        password: this.password
-      }, { withCredentials: true })
-          .then(response => {
-            this.$router.push('/dashboard');
-          })
-          .catch(error => {
-            console.error('Login failed:', error);
-            this.$router.push('/');
-          });
+          email: this.email,
+          password: this.password
+        }, {
+          withCredentials: true,
+          headers: {
+            'Content-Type': 'application/json' 
+          }
+        })
+        .then(response => {
+          console.log('Login response:', response.data);
+          this.$router.push('/dashboard');
+        })
+        .catch(error => {
+          console.error('Login error:', error);
+        });
     }
   }
 }

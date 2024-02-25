@@ -1,11 +1,14 @@
 import random
 import string
 from flask import Flask, request, jsonify, session
+from flask_cors import CORS
 from flask_mysqldb import MySQL
 import os
 import yaml
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 def generate_secret_key():
     return ''.join(random.choices(string.ascii_letters + string.digits, k=16))
@@ -84,15 +87,7 @@ def login():
             app.logger.info("The user is not known to us.")
             return jsonify(message="401: The user is not known to us."), 401
 
-@app.route('/logout')
-def logout():
-    if is_logged_in():
-        session.pop('user_id')
-        return jsonify(message="200: Logging out was successful!"), 200
-    else:
-        return jsonify(message="401: You are not logged in."), 401
-
-@app.route('/check-login')
+@app.route('/check-login', methods=['GET'])
 def check_login():
     if is_logged_in():
         return jsonify(logged_in=True), 200
