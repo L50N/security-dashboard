@@ -35,23 +35,32 @@ mysql = MySQL(app)
 def create_test_users():
     with app.app_context():
         cur = mysql.connection.cursor()
-        cur.execute("SELECT COUNT(*) FROM users")
-        count = cur.fetchone()[0]
-        if count == 0:
+        cur.execute("SHOW TABLES LIKE 'users'")
+        result = cur.fetchone()
+
+        if not result:
+            cur.execute("""
+                CREATE TABLE users (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    email VARCHAR(255) NOT NULL,
+                    password VARCHAR(255) NOT NULL
+                )
+            """)
             default_password = generate_default_password()
             cur.executemany("INSERT INTO users (email, password) VALUES (%s, %s)", [("first@example.com", default_password), ("second@example.com", default_password)])
             mysql.connection.commit()
+        
         cur.close()
 
 def generate_default_password():
-    return ''.join(random.choices(string.ascii_letters + string.digits, k=5))
+    return ''.join(random.choices(string.ascii_letters + string.digits, k=8))
 
 def is_logged_in():
     return 'user_id' in session
 
 @app.route('/')
 def hello():
-    return 'Welcome to your Flask application!'
+    return 'It works.'
 
 @app.route('/login', methods=['POST'])
 def login():

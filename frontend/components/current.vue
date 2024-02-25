@@ -44,7 +44,7 @@
         const titles = {
           '/dashboard': 'Dashboard',
           '/firewall': 'Firewall',
-          '/wg': 'Wireguard',
+          '/wireguard': 'Wireguard',
           '/bruteforce': 'Bruteforce',
         };
   
