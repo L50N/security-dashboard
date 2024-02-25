@@ -27,7 +27,7 @@
             <p>/</p>
           </div>
           <div>
-            <nuxt-link :to="crumb.to" class="hover:text-gray-500 delay-100 transition-all delay-100">
+            <nuxt-link :to="crumb.to" class="hover:text-gray-500 delay-100 transition-all">
               {{ crumb.label }}
             </nuxt-link>
           </div>

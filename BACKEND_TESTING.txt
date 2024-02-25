@@ -1,0 +1,11 @@
+C:\Users\User>curl -X POST -H "Content-Type: application/json" -d "{\"email\":\"first@example.com\",\"password\":\"ckS8m\"}" http://localhost:5000/login
+{
+  "message": "200: The login was successful!"
+}
+
+C:\Users\User>curl http://localhost:5000/check-login
+{
+  "logged_in": false
+}
+
+C:\Users\User>
