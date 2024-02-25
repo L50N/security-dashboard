@@ -52,7 +52,7 @@ Some features include:
    ./installer.sh
    ```
 
-### Forgot your password?
+## Forgot your password?
 Look in your docker-compose.yml for the login data to the MySQL database to connect with a client of your choice. Here you can view and change your password.
 
 ## Usage
