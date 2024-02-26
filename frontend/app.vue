@@ -7,25 +7,21 @@ import Current from './components/current.vue';
 </template>
 
 <script>
-import axios from 'axios';
+import Current from './components/current.vue';
 
 export default {
-  name: 'App',
-  created() {
-    this.checkLogin();
+  components: {
+    Current
   },
-  methods: {
-    async checkLogin() {
-      try {
-        const response = await axios.get('http://localhost:5000/check-login', { withCredentials: true });
-        if (response.data.logged_in) {
-          console.log('User is logged in');
-        } else {
-          console.log('User is not logged in');
-        }
-      } catch (error) {
-        console.error('Error checking login status:', error);
-      }
+  async mounted() {
+    const response = await fetch('http://localhost:5000/check-login', {
+      method: 'GET',
+      credentials: 'include'
+    });
+    const data = await response.json();
+    
+    if (!data.logged_in) {
+      this.$router.push('/');
     }
   }
 }

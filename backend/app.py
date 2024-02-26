@@ -2,13 +2,19 @@ import random
 import string
 from flask import Flask, request, jsonify, session
 from flask_cors import CORS
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 from flask_mysqldb import MySQL
 import os
 import yaml
+from datetime import timedelta
 
 app = Flask(__name__)
-cors = CORS(app)
+cors = CORS(app, supports_credentials=True)
 app.config['CORS_HEADERS'] = 'Content-Type'
+
+limiter = Limiter(key_func=get_remote_address)
+limiter.init_app(app)
 
 def generate_secret_key():
     return ''.join(random.choices(string.ascii_letters + string.digits, k=16))
@@ -32,6 +38,7 @@ app.config['MYSQL_PASSWORD'] = os.getenv('MYSQL_PASSWORD', 'default')
 app.config['MYSQL_DB'] = os.getenv('MYSQL_DB', 'default')
 app.config['SESSION_TYPE'] = os.getenv('SESSION_TYPE', 'filesystem')
 app.config['SESSION_FILE_DIR'] = os.path.join(os.getcwd(), 'sessions')
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=14)
 
 mysql = MySQL(app)
 
@@ -66,6 +73,7 @@ def hello():
     return 'It works.'
 
 @app.route('/login', methods=['POST'])
+@limiter.limit("3 per minute")
 def login():
     data = request.json
     email = data.get('email')

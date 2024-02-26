@@ -1,9 +1,23 @@
 <script setup lang="ts">
-const route = useRoute()
+import { ref } from 'vue';
+
+const loggedIn = ref(false);
+(async () => {
+  try {
+    const response = await fetch('http://localhost:5000/check-login', {
+      method: 'GET',
+      credentials: 'include'
+    });
+    const data = await response.json();
+    loggedIn.value = data.logged_in;
+  } catch (error) {
+    console.error('An error occurred while checking login status:', error);
+  }
+})();
 </script>
 
 <template>
-  <div>
+  <div v-if="loggedIn">
       <Sitebar />
       <div class="pl-[324px] pr-12 pt-7">
         <Current />
