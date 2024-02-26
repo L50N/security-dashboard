@@ -52,9 +52,12 @@ Some features include:
    ./installer.sh
    ```
 
+## Forgot your password?
+Look in your docker-compose.yml for the login data to the MySQL database to connect with a client of your choice. There you can view and change your password.
+
 ## Usage
 
-After installation, you can initiate and utilize the Security Dashboard by simply opening 🔗 http://localhost:4600/ in your web browser.
+After installation, you can initiate and utilize the Security Dashboard by simply opening 🔗 http://localhost:3000/ in your web browser.
 
 ## Acknowledgments
 
