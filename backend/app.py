@@ -68,7 +68,7 @@ def generate_default_password():
 def is_logged_in():
     return 'user_id' in session
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def hello():
     return 'It works.'
 

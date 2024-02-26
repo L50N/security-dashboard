@@ -19,10 +19,10 @@ const loggedIn = ref(false);
 <template>
   <div v-if="loggedIn">
       <Sitebar />
-      <div class="pl-[324px] pr-12 pt-7">
+      <div class="pl-12 xl:pl-[324px] pr-12 pt-7">
         <Current />
       </div>
-      <div class="pl-[324px] pr-12 pt-[56px]">
+      <div class="pl-12 xl:pl-[324px] pr-12 pt-[56px]">
         <wireguardAdd />
         <wireguardHero />
         <WireguardStatistics />
