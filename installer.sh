@@ -3,7 +3,7 @@
 #+------------------------------------------------+
 #|       This installer was made by L5ONdev       |
 #|   https://github.com/l50n/security-dashboard   |
-#|             Version: SNAPSHOT-1.3              |
+#|             Version: SNAPSHOT-1.4              |
 #+------------------------------------------------+
 
 PREFIX='[SecurityDashboard]'
@@ -13,14 +13,17 @@ install_dependencies() {
     echo "$PREFIX" "Installing dependencies and Flask..."
     if command -v yum &> /dev/null; then
         yum update && yum install -y python3 python3-pip mariadb-server ufw docker python3-setuptools
+        yum install -y docker-compose
         curl -fsSL https://get.docker.com -o get-docker.sh
         sh get-docker.sh
         systemctl start docker
         systemctl enable docker
     elif command -v apt-get &> /dev/null; then
         apt update && apt install -y python3 python3-pip mysql-server ufw docker.io python3-setuptools
+        apt install -y docker-compose
     elif command -v dnf &> /dev/null; then
         dnf update && dnf install -y python3 python3-pip mariadb-server ufw docker-ce python3-setuptools
+        dnf install -y docker-compose
     else
         echo "$PREFIX" "We could not recognize your package manager."
         exit 1
