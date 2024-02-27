@@ -31,7 +31,7 @@ Some features include:
 ### Built with
 
 ![NuxtJS](https://img.shields.io/badge/NuxtJS-1B1F23?style=for-the-badge&logo=nuxt.js&logoColor=58A6FF)
-![GO](https://img.shields.io/badge/Go-1B1F23?style=for-the-badge&logo=go&logoColor=58A6FF)
+![Python](https://img.shields.io/badge/python-1B1F23?style=for-the-badge&logo=python&logoColor=58A6FF)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-1B1F23?style=for-the-badge&logo=tailwind-css&logoColor=58A6FF)
 
 ## Getting Started
