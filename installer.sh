@@ -5,7 +5,7 @@ PREFIX='[SecurityDashboard]'
 #+------------------------------------------------+
 #|       This installer was made by L5ONdev       |
 #|   https://github.com/l50n/security-dashboard   |
-#|             Version: SNAPSHOT-1.5              |
+#|             Version: SNAPSHOT-1.6              |
 #+------------------------------------------------+
 
 
@@ -15,16 +15,18 @@ install_dependencies() {
     if command -v yum &> /dev/null; then
         yum update && yum install -y python3 python3-pip mariadb-server ufw docker python3-setuptools pkg-config mysql-devel
         yum install -y docker-compose
-        curl -fsSL https://get.docker.com -o get-docker.sh
-        sh get-docker.sh
         systemctl start docker
         systemctl enable docker
     elif command -v apt-get &> /dev/null; then
         apt update && apt install -y python3 python3-pip mysql-server ufw docker.io python3-setuptools pkg-config libmysqlclient-dev
         apt install -y docker-compose
+        systemctl start docker
+        systemctl enable docker
     elif command -v dnf &> /dev/null; then
         dnf update && dnf install -y python3 python3-pip mariadb-server ufw docker-ce python3-setuptools pkg-config mysql-devel
         dnf install -y docker-compose
+        systemctl start docker
+        systemctl enable docker
     else
         echo "$PREFIX" "We could not recognize your package manager."
         exit 1
@@ -32,7 +34,7 @@ install_dependencies() {
 
     # Install Flask and other Python packages
     easy_install3 pip
-    pip3 install --user flask flask-cors Flask-Limiter PyMySQL PyYAML mysql-connector-python SQLAlchemy flask_mysqldb
+    pip3 install --user flask==2.3.3 flask-cors Flask-Limiter PyMySQL PyYAML mysql-connector-python SQLAlchemy flask_mysqldb
 }
 
 # Function to configure UFW
