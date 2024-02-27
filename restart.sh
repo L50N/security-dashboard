@@ -6,23 +6,30 @@
 #|             Version: SNAPSHOT-1.0              |
 #+------------------------------------------------+
 
-## Prefix variable
+# Prefix variable
 PREFIX='[SecurityDashboard]'
 
-## Checking, if the Dashboard was already installed
-if [[ -d "/etc/sec-dashboard" ]]; then
-  ## Restarting the Docker Compose
-  echo "$PREFIX" "We restart the MariaDB server and the frontend..."
-  docker-compose down /etc/sec-dashboard/docker-compose.yml
-  docker-compose up -d /etc/sec-dashboard/docker-compose.yml
+# Function to display error message and exit
+error_exit() {
+    echo "$PREFIX ERROR: $1" >&2
+    exit 1
+}
 
-  ## Restarting the backend
-  echo "$PREFIX" "We have completed that. Now the backend will be restarted..."
-  pkill -f "dashboard"
-  screen -dmS backend python3 /etc/sec-dashboard/backend/app.py
-
-  ## Finished
-  echo "$PREFIX" "Your dashboard has now been restarted... Take a look at https://localhost:3000."
-  else
-    echo "$PREFIX" "We could not recognize your installation."
+# Check if the Dashboard directory exists
+if [[ ! -d "/etc/sec-dashboard" ]]; then
+  error_exit "Dashboard installation directory not found."
 fi
+
+# Restart Docker Compose services
+echo "$PREFIX Restarting MariaDB server and frontend..."
+docker-compose down -f /etc/sec-dashboard/docker-compose.yml || error_exit "Failed to stop Docker services."
+docker-compose up -d -f /etc/sec-dashboard/docker-compose.yml || error_exit "Failed to start Docker services."
+
+# Restart the backend
+echo "$PREFIX Restarting backend..."
+pkill -f "dashboard" || error_exit "Failed to stop backend process."
+sleep 8
+screen -dmS backend python3 /etc/sec-dashboard/backend/app.py || error_exit "Failed to start backend."
+
+# Finished
+echo "$PREFIX Your dashboard has been restarted. Visit https://localhost:3000."

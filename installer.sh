@@ -8,6 +8,7 @@ PREFIX='[SecurityDashboard]'
 #|             Version: SNAPSHOT-1.6              |
 #+------------------------------------------------+
 
+## TODO: - If directory already exists, ask user if he wants to remove dashboard - Hash passwords by default and print after installation.
 
 # Function to install required packages and Flask
 install_dependencies() {
@@ -66,6 +67,7 @@ start_services() {
     docker-compose -f /etc/sec-dashboard/docker-compose.yml up -d
 
     # Start the backend in a detached screen session
+    sleep 8
     screen -dmS backend python3 /etc/sec-dashboard/backend/app.py
 }
 
