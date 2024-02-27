@@ -8,7 +8,7 @@ PREFIX='[SecurityDashboard]'
 #|             Version: SNAPSHOT-1.6              |
 #+------------------------------------------------+
 
-## TODO: - If directory already exists, ask user if he wants to remove dashboard - Hash passwords by default and print after installation.
+## TODO: - If directory already exists, ask user if he wants to remove dashboard - Hash passwords by default and print after installation. - test installation on centos and fedora
 
 # Function to install required packages and Flask
 install_dependencies() {
