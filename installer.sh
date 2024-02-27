@@ -3,7 +3,7 @@
 #+------------------------------------------------+
 #|       This installer was made by L5ONdev       |
 #|   https://github.com/l50n/security-dashboard   |
-#|             Version: SNAPSHOT-1.0              |
+#|             Version: SNAPSHOT-1.1              |
 #+------------------------------------------------+
 
 ## Prefix variable
@@ -24,19 +24,22 @@ fi
 
 ## Package manager detection and package names
 if command -v yum &> /dev/null; then
-    yum update && yum install -y python3 screen curl wget python3-pip mariadb-server && pip3 install --user flask flask-cors Flask-Limiter PyMySQL PyYAML
+    yum update && yum install -y python3 screen curl wget python3-pip
     clear
 elif command -v apt-get &> /dev/null; then
-    apt update && apt install -y python3 screen curl wget python3-pip mysql-server && pip3 install --user flask flask-cors Flask-Limiter PyMySQL PyYAML
+    apt update && apt install -y python3 screen curl wget python3-pip
     clear
 elif command -v dnf &> /dev/null; then
-    dnf update && dnf install -y python3 screen curl wget python3-pip mariadb-server && pip3 install --user flask flask-cors Flask-Limiter PyMySQL PyYAML
+    dnf update && dnf install -y python3 screen curl wget python3-pip
     clear
 else
     clear
     echo "$PREFIX" "We could not recognize your package manager."
     exit
 fi
+
+## Install Flask via PIP
+pip install --user flask flask-cors Flask-Limiter PyMySQL PyYAML flask_mysqldb
 
 ## Creating directory where we can store our needed files
 mkdir -p /etc/sec-dashboard
@@ -113,5 +116,8 @@ fi
 clear
 echo "$PREFIX" "You should change your password IMMEDIATELY. You can do this by opening /etc/sec-dashboard/docker-compose.yml and changing the MariaDB server password data there and then telling the backend the new password by also changing the data in /etc/sec-dashboard/backend/app.py as you had changed it in docker-compose.yml!"
 sleep 8
+
+## Empty the installation directory
+rm -rf *
 
 exit
