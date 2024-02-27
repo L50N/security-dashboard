@@ -14,17 +14,17 @@ PREFIX='[SecurityDashboard]'
 install_dependencies() {
     echo "$PREFIX" "Installing dependencies and Flask..."
     if command -v yum &> /dev/null; then
-        yum update && yum install -y python3 python3-pip mariadb-server ufw docker python3-setuptools pkg-config mysql-devel
+        yum update && yum install -y python3 python3-pip ufw docker python3-setuptools pkg-config mysql-devel
         yum install -y docker-compose
         systemctl start docker
         systemctl enable docker
     elif command -v apt-get &> /dev/null; then
-        apt update && apt install -y python3 python3-pip mysql-server ufw docker.io python3-setuptools pkg-config libmysqlclient-dev
+        apt update && apt install -y python3 python3-pip ufw docker.io python3-setuptools pkg-config libmysqlclient-dev
         apt install -y docker-compose
         systemctl start docker
         systemctl enable docker
     elif command -v dnf &> /dev/null; then
-        dnf update && dnf install -y python3 python3-pip mariadb-server ufw docker-ce python3-setuptools pkg-config mysql-devel
+        dnf update && dnf install -y python3 python3-pip ufw docker-ce python3-setuptools pkg-config mysql-devel
         dnf install -y docker-compose
         systemctl start docker
         systemctl enable docker
@@ -44,7 +44,6 @@ configure_ufw() {
         ufw allow 3000
         ufw allow 5000
         ufw allow 3307
-        ufw --force enable
     else
         echo "$PREFIX" "UFW is not installed. Skipping port configuration."
     fi
