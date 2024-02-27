@@ -34,7 +34,7 @@ else:
     app.secret_key = generate_secret_key()
     save_secret_key_to_file(app.secret_key)
 
-app.config['MYSQL_HOST'] = os.getenv('MYSQL_HOST', 'localhost')
+app.config['MYSQL_HOST'] = os.getenv('MYSQL_HOST', '127.0.0.1')
 app.config['MYSQL_PORT'] = os.getenv('MYSQL_PORT', 3307)
 app.config['MYSQL_USER'] = os.getenv('MYSQL_USER', 'root')
 app.config['MYSQL_PASSWORD'] = os.getenv('MYSQL_PASSWORD', 'default')
