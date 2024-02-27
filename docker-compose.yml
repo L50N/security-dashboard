@@ -3,7 +3,7 @@ version: '3.8'
 services:
   db:
     image: mariadb:11.1.1-rc-jammy
-    container_name: sec0-backend-db
+    container_name: backend-db
     restart: always
     ports:
       - "3307:3306"

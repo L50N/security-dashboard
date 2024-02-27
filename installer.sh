@@ -34,7 +34,6 @@ install_dependencies() {
     fi
 
     # Install Flask and other Python packages
-    easy_install3 pip
     pip3 install --user flask==2.3.3 flask-cors Flask-Limiter PyMySQL PyYAML mysql-connector-python SQLAlchemy flask_mysqldb
 }
 
