@@ -59,6 +59,7 @@ copy_files() {
     cp -r ./frontend /etc/sec-dashboard
     cp -r ./LICENSE /etc/sec-dashboard
     cp -r ./restart.sh /etc/sec-dashboard
+    chmod+ x /etc/sec-dashboard/restart.sh
 }
 
 # Function to start services
