@@ -79,10 +79,7 @@ main() {
     start_services
 
     # Prompt to change passwords
-    echo "$PREFIX" "You should change your password IMMEDIATELY."
-    echo "$PREFIX" "You can do this by opening /etc/sec-dashboard/docker-compose.yml"
-    echo "$PREFIX" "and changing the MariaDB server password data there."
-    echo "$PREFIX" "Then, update the data in /etc/sec-dashboard/backend/app.py as well."
+    echo "$PREFIX" "Thank you very much for your installation. Your dashboard should now run on http://localhost:3000."
 }
 
 main
