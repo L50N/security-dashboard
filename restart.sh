@@ -22,8 +22,8 @@ fi
 
 # Restart Docker Compose services
 echo "$PREFIX Restarting MariaDB server and frontend..."
-docker-compose down -f /etc/sec-dashboard/docker-compose.yml || error_exit "Failed to stop Docker services."
-docker-compose up -d -f /etc/sec-dashboard/docker-compose.yml || error_exit "Failed to start Docker services."
+docker-compose down /etc/sec-dashboard/docker-compose.yml || error_exit "Failed to stop Docker services."
+docker-compose up -d /etc/sec-dashboard/docker-compose.yml || error_exit "Failed to start Docker services."
 
 # Restart the backend
 echo "$PREFIX Restarting backend..."
