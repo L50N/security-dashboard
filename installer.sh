@@ -3,7 +3,7 @@
 #+------------------------------------------------+
 #|       This installer was made by L5ONdev       |
 #|   https://github.com/l50n/security-dashboard   |
-#|             Version: SNAPSHOT-1.2              |
+#|             Version: SNAPSHOT-1.3              |
 #+------------------------------------------------+
 
 PREFIX='[SecurityDashboard]'
@@ -12,18 +12,23 @@ PREFIX='[SecurityDashboard]'
 install_dependencies() {
     echo "$PREFIX" "Installing dependencies and Flask..."
     if command -v yum &> /dev/null; then
-        yum update && yum install -y python3 python3-pip mariadb-server ufw docker-ce docker-compose screen
+        yum update && yum install -y python3 python3-pip mariadb-server ufw docker python3-setuptools
+        curl -fsSL https://get.docker.com -o get-docker.sh
+        sh get-docker.sh
+        systemctl start docker
+        systemctl enable docker
     elif command -v apt-get &> /dev/null; then
-        apt update && apt install -y python3 python3-pip mysql-server ufw docker-ce docker-compose screen
+        apt update && apt install -y python3 python3-pip mysql-server ufw docker.io python3-setuptools
     elif command -v dnf &> /dev/null; then
-        dnf update && dnf install -y python3 python3-pip mariadb-server ufw docker-ce docker-compose screen
+        dnf update && dnf install -y python3 python3-pip mariadb-server ufw docker-ce python3-setuptools
     else
         echo "$PREFIX" "We could not recognize your package manager."
         exit 1
     fi
 
     # Install Flask and other Python packages
-    python3 -m pip install --user flask flask-cors Flask-Limiter PyMySQL PyYAML
+    easy_install3 pip
+    pip3 install --user flask flask-cors Flask-Limiter PyMySQL PyYAML
 }
 
 # Function to configure UFW
@@ -58,50 +63,6 @@ start_services() {
     screen -dmS backend python3 /etc/sec-dashboard/backend/app.py
 }
 
-# Function to add script to autostart
-configure_autostart() {
-    START_SCRIPT="/etc/sec-dashboard/start_dashboard.sh"
-    echo "$PREFIX" "Configuring autostart..."
-
-    cat > "$START_SCRIPT" <<EOF
-#!/bin/bash
-sleep 20
-cd /etc/sec-dashboard/
-docker-compose -f docker-compose.yml up -d
-screen -dmS backend python3 /etc/sec-dashboard/backend/app.py
-EOF
-
-    chmod +x "$START_SCRIPT"
-
-    if [[ -f /etc/rc.local ]]; then
-        # Add the script to /etc/rc.local for backward compatibility
-        sed -i '/^exit 0/d' /etc/rc.local
-        echo "$START_SCRIPT" >> /etc/rc.local
-        echo "exit 0" >> /etc/rc.local
-    else
-        # Add the script to systemd
-        cat > /etc/systemd/system/security-dashboard.service <<EOF
-[Unit]
-Description=Security Dashboard
-After=network.target
-
-[Service]
-Type=simple
-ExecStart=/bin/bash $START_SCRIPT
-Restart=always
-User=root
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
-        systemctl daemon-reload
-        systemctl enable security-dashboard.service
-    fi
-
-    echo "$PREFIX" "Autostart configured."
-}
-
 # Main function
 main() {
     clear
@@ -109,7 +70,6 @@ main() {
     configure_ufw
     copy_files
     start_services
-    configure_autostart
 
     # Prompt to change passwords
     echo "$PREFIX" "You should change your password IMMEDIATELY."
