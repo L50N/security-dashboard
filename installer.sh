@@ -80,6 +80,7 @@ main() {
     start_services
 
     # Prompt to change passwords
+    clear
     echo "$PREFIX" "Thank you very much for your installation. Your dashboard should now run on http://localhost:3000."
 }
 
