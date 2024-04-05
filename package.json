@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/L50N/security-dashboard/issues"
   },
-  "homepage": "https://github.com/L50N/security-dashboard#readme"
+  "homepage": "https://github.com/L50N/security-dashboard#readme",
+  "devDependencies": {
+    "@types/node": "^20.12.4"
+  }
 }
