@@ -20,8 +20,8 @@
 </div>
 
 <div>
-  <img src="https://i.ibb.co/gDB1Rmq/Screenshot-2024-04-28-152825.png" class="width: 100%; object: cover;">
-  <img src="https://i.ibb.co/nsVsrDq/Screenshot-2024-04-28-152933.png" class="width: 100%; object: cover;">
+  <img src="https://i.ibb.co/gDB1Rmq/Screenshot-2024-04-28-152825.png" class="width: 100%; object: cover; border-radius: 8px;">
+  <img src="https://i.ibb.co/nsVsrDq/Screenshot-2024-04-28-152933.png" class="width: 100%; object: cover; border-radius: 8px;">
 </div>
 
 ## About the Project
