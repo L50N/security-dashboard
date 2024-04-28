@@ -19,6 +19,11 @@
   <strong>WARNING:</strong> This Security Dashboard is provided "as is," without warranty of any kind, express or implied. Use it at your own risk. The developers assume no liability for security vulnerabilities, breaches, or any other issues that may arise during usage.
 </div>
 
+<div>
+  <img src="https://i.ibb.co/gDB1Rmq/Screenshot-2024-04-28-152825.png" class="width: 100%; object: cover;">
+  <img src="https://i.ibb.co/nsVsrDq/Screenshot-2024-04-28-152933.png" class="width: 100%; object: cover;">
+</div>
+
 ## About the Project
 
 This Security Dashboard focuses on the highest security and user-friendliness. It is designed to provide network administrators with an intuitive and modern interface for managing their firewalls.
