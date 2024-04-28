@@ -19,9 +19,11 @@
   <strong>WARNING:</strong> This Security Dashboard is provided "as is," without warranty of any kind, express or implied. Use it at your own risk. The developers assume no liability for security vulnerabilities, breaches, or any other issues that may arise during usage.
 </div>
 
+<br />
+
 <div>
-  <img src="https://i.ibb.co/gDB1Rmq/Screenshot-2024-04-28-152825.png" class="width: 100%; object: cover; border-radius: 8px;">
-  <img src="https://i.ibb.co/nsVsrDq/Screenshot-2024-04-28-152933.png" class="width: 100%; object: cover; border-radius: 8px;">
+  <img src="https://i.ibb.co/gDB1Rmq/Screenshot-2024-04-28-152825.png">
+  <img src="https://i.ibb.co/nsVsrDq/Screenshot-2024-04-28-152933.png">
 </div>
 
 ## About the Project
