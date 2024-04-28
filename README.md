@@ -22,8 +22,8 @@
 <br />
 
 <div>
-  <img src="https://i.ibb.co/gDB1Rmq/Screenshot-2024-04-28-152825.png">
-  <img src="https://i.ibb.co/nsVsrDq/Screenshot-2024-04-28-152933.png">
+  <img src="https://i.ibb.co/SK9T35Y/Screenshot-2024-04-28-152825.png" style="width: 728px;"><br />
+  <img src="https://i.ibb.co/nsVsrDq/Screenshot-2024-04-28-152933.png" style="width: 728px;">
 </div>
 
 ## About the Project
